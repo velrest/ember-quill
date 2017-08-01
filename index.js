@@ -5,7 +5,7 @@ const fastboot = require('fastboot-transform');
 
 module.exports = {
 	name: 'ember-quill',
-	included: function(app) {
+	included(app) {
 		this._super.included(app);
 		app.import('vendor/quill/dist/quill.js');
 		app.import('vendor/quill/dist/quill.snow.css');
@@ -19,7 +19,7 @@ module.exports = {
 
 	options: {
 		nodeAssets: {
-			quill: function() {
+			quill() {
 				return {
 					vendor: ['dist/quill.js'],
 					import: [
