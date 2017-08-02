@@ -62,10 +62,6 @@ export default Ember.Component.extend({
 
 		this._super(...arguments);
 
-		// Get the current DOM element.
-
-		let element = this.$().get(0);
-
 		// Get the defined quill options.
 
 		let settings = this.getProperties(options);
@@ -74,7 +70,7 @@ export default Ember.Component.extend({
 
 		// Instantiate the Quill editor instance.
 
-		this.quill = new Quill(element, settings);
+		this.quill = new Quill(this.element, settings);
 
 		// Set the default delta contents if specified.
 
@@ -118,9 +114,9 @@ export default Ember.Component.extend({
 
 	willDestroyElement() {
 
-		this.get('quillable').unregister(this.name, this.quill);
-
 		this._super(...arguments);
+
+		this.get('quillable').unregister(this.name, this.quill);
 
 	},
 
