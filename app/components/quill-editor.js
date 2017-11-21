@@ -1,1 +1,1 @@
-export { default } from 'ember-quill/components/quill-editor';
+export { default } from '@abcum/ember-quill/components/quill-editor';

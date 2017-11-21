@@ -1,1 +1,1 @@
-export { default } from 'ember-quill/helpers/quill-set-contents';
+export { default } from '@abcum/ember-quill/helpers/quill-set-contents';

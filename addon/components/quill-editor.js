@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Quill from 'quill';
-import layout from 'ember-quill/templates/components/quill-editor';
+import layout from '../templates/components/quill-editor';
 
 const options = [
 	'bounds',

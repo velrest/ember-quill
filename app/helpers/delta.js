@@ -1,1 +1,1 @@
-export { default, delta } from 'ember-quill/helpers/delta';
+export { default, delta } from '@abcum/ember-quill/helpers/delta';
