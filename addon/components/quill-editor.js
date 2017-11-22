@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import Quill from 'quill';
 import layout from '../templates/components/quill-editor';
 
@@ -21,13 +22,13 @@ const modules = [
 	'syntax',
 ];
 
-export default Ember.Component.extend({
+export default Component.extend({
 
 	layout,
 
 	classNames: ['quill-editor'],
 
-	quillable: Ember.inject.service(),
+	quillable: service(),
 
 	// ------------------------------
 	// Set quill options

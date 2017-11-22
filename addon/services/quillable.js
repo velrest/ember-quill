@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import Evented from '@ember/object/evented';
+import Service from '@ember/service';
 import Quill from 'quill';
 
 const Delta = Quill.import('delta');
@@ -9,7 +10,7 @@ class Group {
 	}
 }
 
-export default Ember.Service.extend(Ember.Evented, {
+export default Service.extend(Evented, {
 
 	groups: [],
 

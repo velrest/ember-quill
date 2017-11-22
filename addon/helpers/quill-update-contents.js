@@ -1,8 +1,9 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Helper from '@ember/component/helper';
 
-export default Ember.Helper.extend({
+export default Helper.extend({
 
-	quillable: Ember.inject.service(),
+	quillable: service(),
 
 	compute([name], { delta }) {
 		return (data = delta) => {
