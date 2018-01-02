@@ -2,7 +2,7 @@
 
 An addon for working with the Quill rich text editor in an Ember.js app.
 
-[![](https://img.shields.io/circleci/project/abcum/ember-quill/master.svg?style=flat-square)](https://circleci.com/gh/abcum/ember-quill) [![](https://img.shields.io/npm/v/@abcum/ember-quill.svg?style=flat-square)](https://www.npmjs.com/package/@abcum/ember-quill) [![](https://img.shields.io/badge/ember-2.0.0+-orange.svg?style=flat-square)](https://github.com/abcum/ember-quill) [![](https://david-dm.org/abcum/ember-quill/status.svg?style=flat-square)](https://david-dm.org/abcum/ember-quill) [![](https://david-dm.org/abcum/ember-quill/dev-status.svg?style=flat-square)](https://david-dm.org/abcum/ember-quill?type=dev) [![](https://img.shields.io/badge/license-MIT-00bfff.svg?style=flat-square)](https://github.com/abcum/ember-quill) 
+[![](https://img.shields.io/circleci/project/abcum/ember-quill/master.svg?style=flat-square)](https://circleci.com/gh/abcum/ember-quill) [![](https://img.shields.io/npm/v/@abcum/ember-quill.svg?style=flat-square)](https://www.npmjs.com/package/@abcum/ember-quill) [![](https://img.shields.io/badge/ember-2.16.1+-orange.svg?style=flat-square)](https://github.com/abcum/ember-quill) [![](https://david-dm.org/abcum/ember-quill/status.svg?style=flat-square)](https://david-dm.org/abcum/ember-quill) [![](https://david-dm.org/abcum/ember-quill/dev-status.svg?style=flat-square)](https://david-dm.org/abcum/ember-quill?type=dev) [![](https://img.shields.io/badge/license-MIT-00bfff.svg?style=flat-square)](https://github.com/abcum/ember-quill) 
 
 ## Usage
 
