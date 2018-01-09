@@ -1,5 +1,5 @@
 (function() {
-  /* globals define, quill */
+  /* globals define, Quill */
 
   function generateModule(name, values) {
     define(name, [], function() {
