@@ -12,7 +12,10 @@ class Group {
 
 export default Service.extend(Evented, {
 
-	groups: [],
+	init() {
+		this._super(...arguments);
+		this.set('groups', []);
+	},
 
 	group(name) {
 		return this.groups[name] = this.groups[name] || new Group();

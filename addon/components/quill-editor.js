@@ -22,6 +22,22 @@ const modules = [
 	'syntax',
 ];
 
+const history = {
+	delay: 1000,
+	maxStack: 1000,
+	userOnly: true,
+};
+
+const toolbar = [
+	[{'header': [1, 2, 3, 4, false]}],
+	['bold', 'italic', 'underline', 'strike'],
+	[{'color': []}, {'background': []}],
+	[{'align': []}, {'list': 'ordered'}, {'list': 'bullet'}],
+	['blockquote', 'image', 'video', 'code-block'],
+	['link'],
+	['clean']
+];
+
 export default Component.extend({
 
 	layout,
@@ -37,27 +53,25 @@ export default Component.extend({
 	bounds: 'document.body',
 	debug: 'warn',
 	formats: true,
-	history: {
-		delay: 1000,
-		maxStack: 1000,
-		userOnly: true,
-	},
+	history: history,
 	placeholder: '',
 	readOnly: false,
 	theme: 'snow',
-	toolbar: [
-		[{'header': [1, 2, 3, 4, false]}],
-		['bold', 'italic', 'underline', 'strike'],
-		[{'color': []}, {'background': []}],
-		[{'align': []}, {'list': 'ordered'}, {'list': 'bullet'}],
-		['blockquote', 'image', 'video', 'code-block'],
-		['link'],
-		['clean']
-	],
+	toolbar: toolbar,
 
 	// ------------------------------
 	// Set quill editor
 	// ------------------------------
+
+	init() {
+
+		this._super(...arguments);
+
+		this.set('history', history);
+
+		this.set('toolbar', toolbar)
+
+	},
 
 	didInsertElement() {
 
@@ -80,22 +94,28 @@ export default Component.extend({
 		// Listen to events and call any specified actions.
 
 		this.quill.on('editor-change', (event, ...args) => {
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('editor-change', event, ...args);
 		});
 
 		this.quill.on('text-change', (delta, oldDelta, source) => {
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('text-change', delta, oldDelta, source);
 		});
 
 		this.quill.on('selection-change', (delta, oldDelta, source) => {
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('selection-change', delta, oldDelta, source);
 		});
 
 		// Listen to events for getting full content or length.
 
 		this.quill.on('text-change', () => {
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('length-change', this.quill.getLength());
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('content-change', this.quill.getContents());
+			// eslint-disable-next-line ember/closure-actions
 			this.sendAction('html-change', this.$('.ql-editor').html());
 		});
 
