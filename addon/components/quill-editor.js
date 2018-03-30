@@ -69,7 +69,7 @@ export default Component.extend({
 
 		this.set('history', history);
 
-		this.set('toolbar', toolbar)
+		this.set('toolbar', toolbar);
 
 	},
 
