@@ -1,12 +1,13 @@
 import Evented from '@ember/object/evented';
 import Service from '@ember/service';
+import { A } from '@ember/array';
 import Quill from 'quill';
 
 const Delta = Quill.import('delta');
 
 class Group {
 	constructor() {
-		this.areas = [];
+		this.areas = A();
 	}
 }
 
