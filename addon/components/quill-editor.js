@@ -65,16 +65,6 @@ export default Component.extend({
 	// Set quill editor
 	// ------------------------------
 
-	init() {
-
-		this._super(...arguments);
-
-		this.set('history', history);
-
-		this.set('toolbar', toolbar);
-
-	},
-
 	didInsertElement() {
 
 		this._super(...arguments);
