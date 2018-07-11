@@ -1,6 +1,6 @@
 {
   "name": "@abcum/ember-quill",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An addon for working with the Quill rich text editor for Ember.js.",
   "keywords": [
     "ember-addon"
