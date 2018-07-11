@@ -10,6 +10,7 @@ const options = [
 	'modules',
 	'placeholder',
 	'readOnly',
+	'scrollingContainer',
 	'theme',
 ];
 
@@ -56,6 +57,7 @@ export default Component.extend({
 	history: history,
 	placeholder: '',
 	readOnly: false,
+	scrollingContainer: null,
 	theme: 'snow',
 	toolbar: toolbar,
 
