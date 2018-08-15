@@ -2,6 +2,7 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import Quill from 'quill';
 import layout from '../templates/components/quill-editor';
+import { getWithDefault } from '@ember/object'
 
 const options = [
 	'bounds',
@@ -59,7 +60,6 @@ export default Component.extend({
 	readOnly: false,
 	scrollingContainer: null,
 	theme: 'snow',
-	toolbar: toolbar,
 
 	// ------------------------------
 	// Set quill editor
@@ -73,7 +73,9 @@ export default Component.extend({
 
 		let settings = this.getProperties(options);
 
-		settings.modules = this.getProperties(modules);
+		// Set defaults if undefined
+		settings.modules = getWithDefault(settings, 'modules', this.getProperties(modules));
+		settings.modules.toolbar = getWithDefault(settings.modules, 'toolbar', toolbar);
 
 		// Instantiate the Quill editor instance.
 
