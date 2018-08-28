@@ -60,6 +60,8 @@ export default Component.extend({
 	scrollingContainer: null,
 	theme: 'snow',
 	toolbar: toolbar,
+	modules: modules,
+	options: options,
 
 	// ------------------------------
 	// Set quill editor
@@ -71,9 +73,9 @@ export default Component.extend({
 
 		// Get the defined quill options.
 
-		let settings = this.getProperties(options);
+		let settings = this.getProperties(this.options);
 
-		settings.modules = this.getProperties(modules);
+		settings.modules = this.getProperties(this.modules);
 
 		// Instantiate the Quill editor instance.
 
