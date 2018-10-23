@@ -2,6 +2,7 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import Quill from 'quill';
 import layout from '../templates/components/quill-editor';
+import { assert } from '@ember/debug';
 
 const options = [
 	'bounds',
@@ -64,6 +65,32 @@ export default Component.extend({
 	options: options,
 
 	// ------------------------------
+	// Validate passed actions
+	// ------------------------------
+
+	init(){
+		this._super(...arguments)
+
+		const events = [
+			'content-change',
+			'editor-change',
+			'html-change',
+			'length-change',
+			'selection-change',
+			'text-change'
+		]
+
+		events.forEach(e =>{
+			if(this[e]) {
+				assert(
+					`"${e}" must be a closure action. Passed "${typeof e}".`,
+					typeof this[e] === 'function'
+				)
+			}
+		})
+	},
+
+	// ------------------------------
 	// Set quill editor
 	// ------------------------------
 
@@ -88,29 +115,23 @@ export default Component.extend({
 		// Listen to events and call any specified actions.
 
 		this.quill.on('editor-change', (event, ...args) => {
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('editor-change', event, ...args);
+			this['editor-change'] && this['editor-change'](event, ...args);
 		});
 
 		this.quill.on('text-change', (delta, oldDelta, source) => {
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('text-change', delta, oldDelta, source);
+			this['text-change'] && this['text-change'](delta, oldDelta, source);
 		});
 
 		this.quill.on('selection-change', (delta, oldDelta, source) => {
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('selection-change', delta, oldDelta, source);
+			this['selection-change'] && this['selection-change'](delta, oldDelta, source);
 		});
 
 		// Listen to events for getting full content or length.
 
 		this.quill.on('text-change', () => {
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('length-change', this.quill.getLength());
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('content-change', this.quill.getContents());
-			// eslint-disable-next-line ember/closure-actions
-			this.sendAction('html-change', this.$('.ql-editor').html());
+			this['length-change'] && this['length-change'](this.quill.getLength());
+			this['content-change'] && this['content-change'](this.quill.getContents());
+			this['html-change'] && this['html-change'](this.$('.ql-editor').html());
 		});
 
 		// Listen to events for syncing with the quillable service.
